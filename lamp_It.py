@@ -23,13 +23,16 @@ class lamp_It:
             m.speak("yes i can hear you ");
         
         elif "search" in data:
-            answer=online(data);
+            answer=m.online(data);
+            m.speak(answer);
+        elif "who is " in data:
+            answer=m.online(data);
             m.speak(answer);
         elif "calculate" in data:
-            answer=online(data);
+            answer=m.online(data);
             m.speak(answer);
         elif "math" in data:
-            answer=online(data);
+            answer=m.online(data);
             m.speak(answer);
         else:
             answer=str(m.lamp.get_response(data));

@@ -27,7 +27,11 @@ class main:
         logic_adapters=[
             "chatterbot.logic.BestMatch",
             "chatterbot.logic.MathematicalEvaluation",
-            'chatterbot.logic.TimeLogicAdapter'
+            {
+            'import_path': 'chatterbot.logic.LowConfidenceAdapter',
+            'threshold': 0.60,
+            'default_response': 'I am sorry, but I do not understand.'
+        }
             ],
         filters=[
             'chatterbot.filters.RepetitiveResponseFilter'
