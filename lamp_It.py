@@ -6,37 +6,49 @@ class lamp_It:
         if "how are you" in data:
             answer=str(m.lamp.get_response(data));
             print(answer);
-            m.speak(answer);
+            return answer;
+            
  
         elif "what time is it" in data:
+            answer=ctime();
+            return answer;
             m.speak(ctime())
         
         elif "name" in data:
             answer=str(m.lamp.get_response(data));
-            m.speak(answer);
+            return answer;
+            
  
         elif "where is" in data:
             wikipedia.set_lang("en");
             answer=wikipedia.summary(ask,sentences =2);
-            m.speak(answer);
+            return answer;
+            
         elif "can you hear me" in data:
+            answer="yes i can hear you";
+            return answer;
             m.speak("yes i can hear you ");
         
         elif "search" in data:
             answer=m.online(data);
-            m.speak(answer);
+            return answer;
+             
         elif "who is " in data:
             answer=m.online(data);
-            m.speak(answer);
+            return answer;
+             
         elif "calculate" in data:
             answer=m.online(data);
-            m.speak(answer);
+            return answer;
+             
         elif "math" in data:
             answer=m.online(data);
-            m.speak(answer);
+            return answer;
+             
         else:
             answer=str(m.lamp.get_response(data));
-            m.speak(answer);
+            return answer;
+             
 
 
 
