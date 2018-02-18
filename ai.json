@@ -1,0 +1,29 @@
+{
+    "conversations": [
+        [
+            "Good morning, how are you?",
+            "I am doing well, how about you?",
+            "I'm also good.",
+            "That's good to hear.",
+            "Yes it is."
+        ],
+        [
+            
+            "EDWIN",
+            "How are you doing?",
+            "I am doing well, how about you?",
+            "I am also good.",
+            "That's good."
+        ],
+        [
+            "Have you heard the news?",
+            "What good news?"
+        ],
+        [
+            "What is your favorite book?",
+            "I can't read.",
+            "So what's your favorite color?",
+            "Blue"
+        ]
+    ]
+}
