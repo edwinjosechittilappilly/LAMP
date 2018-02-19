@@ -96,8 +96,8 @@ class main:
             question=Q.readline().replace("- ","").strip();
             print("Q :"+question);
             answer=input("answer")
-            A.write(question+"/n");
-            A.write(answer+"/n");
+            A.write(question+"\n");
+            A.write(answer+"\n");
             lamp.train([question,answer]);
             i+=1;
         

@@ -1,4 +1,5 @@
 from main import main as m
+import time
 class lamp_It:
     # # lamp main function with how and which all functions need to be called
     def lamp_it(data):
@@ -9,8 +10,8 @@ class lamp_It:
             return answer;
             
  
-        elif "what time is it" in data:
-            answer=ctime();
+        elif "time" in data:
+            answer=time.ctime();
             return answer;
             m.speak(ctime())
         
