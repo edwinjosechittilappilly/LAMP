@@ -150,7 +150,7 @@ class main:
    # Record Audio
         r = sr.Recognizer()
         r.dynamic_energy_threshold = True
-        with sr.Microphone() as source:
+        with sr.Microphone(device_index=2) as source:
             r.adjust_for_ambient_noise(source, duration = 3);
             print("Say something!")
             audio = r.listen(source)
@@ -166,8 +166,8 @@ class main:
             print("Google Speech Recognition could not understand audio")
         except sr.RequestError as e:
             print("Could not request results from Google Speech Recognition service; {0}".format(e))
-            data=r.recognize_sphinx(audio);
-            print("Sphinx thinks you said " + data)
+            #data=r.recognize_sphinx(audio);
+            #print("Sphinx thinks you said " + data)
 
         return data
 
