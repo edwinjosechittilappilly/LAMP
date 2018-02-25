@@ -1,13 +1,17 @@
  
 from lamp_It import lamp_It as l
 from main import main as m
+from wakeword import wakeword as w
  
-m.speak("Hi Buddy , what can I do for you?")
+m.speak("call me lamp to wake me up")
 while 1:
-    data = m.recordAudio();
-    #data=str(input("Question:"));
-    ans=l.lamp_it(data);
-    m.speak(ans);
+    while (w.isWake()):
+        m.speak("Hi Buddy , what can I do for you?");
+        data = m.recordAudio();
+        #data=str(input("Question:"));
+        ans=l.lamp_it(data);
+        print(ans);
+        m.speak(ans);
 
 
 

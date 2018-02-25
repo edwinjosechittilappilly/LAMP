@@ -1,4 +1,3 @@
-
 import chatterbot
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
@@ -10,6 +9,8 @@ import os
 from gtts import gTTS
 import wikipedia
 import wolframalpha
+from yandex_speech import TTS
+import os
 class main:
     "this class contains all the functions required for the "
     APPID="LTQUWQ-YLHV4696XJ";
@@ -29,28 +30,30 @@ class main:
             "chatterbot.logic.MathematicalEvaluation",
             {
             'import_path': 'chatterbot.logic.LowConfidenceAdapter',
-            'threshold': 0.60,
+            'threshold': 0.40,
             'default_response': 'I am sorry, but I do not understand.'
         }
             ],
-        filters=[
-            'chatterbot.filters.RepetitiveResponseFilter'
-            ],
+        #filters=[
+            #'chatterbot.filters.RepetitiveResponseFilter'
+           # ],
         database='./databaselampit.sqlite3'
         )
 
 #VOICE
 
     def speak(audioString):
-        print(audioString)
-        tts = gTTS(text=audioString, lang='en')
-        tts.save("audio.mp3")
-        os.system("mpg321 audio.mp3")
+        tts = TTS("ermil", "mp3", "25d87483-720a-46ea-82bd-7f89d4c95bbd",lang='en-US',emotion="good")
+        tts.generate(audioString+" ")
+        tts.save()
+        os.system("mpg321 --stereo speech.mp3 ")
+            
+            
         
 #trainer for the list available in the folder input the filename
 
     def train_file(filename):
-        speak("I am learinig and launching myself soon");
+        #speak("I am learinig and launching myself soon");
         path=filename+"";
         file = open(path, 'r')
         n_lines=0;
@@ -62,8 +65,10 @@ class main:
         file = open(path, 'r')
         for i in range(0,n_lines):
             question=file.readline().replace("- ","").strip();
+            print(question);
             answer=file.readline().replace("- ","").strip();
-            lamp.train([question,answer]);
+            print(answer);
+            main.lamp.train([question,answer]);
             i+=1;
 
 # funtion to know if the bot is calibarted or not
@@ -132,9 +137,14 @@ class main:
     def online(ask):
     #try and except
         try:
+            
         #wolf
+            import wolframalpha
+            APPID="LTQUWQ-YLHV4696XJ";
+            client = wolframalpha.Client(APPID);
             res=client.query(ask);
             answer=next(res.results).text;
+            #print(answer);
         except:
                 try:
                     wikipedia.set_lang("en");
@@ -150,8 +160,8 @@ class main:
    # Record Audio
         r = sr.Recognizer()
         r.dynamic_energy_threshold = True
-        with sr.Microphone(device_index=2) as source:
-            r.adjust_for_ambient_noise(source, duration = 3);
+        with sr.Microphone() as source:
+            r.adjust_for_ambient_noise(source, duration = 1);
             print("Say something!")
             audio = r.listen(source)
 
@@ -170,17 +180,6 @@ class main:
             #print("Sphinx thinks you said " + data)
 
         return data
-
-
-
-
-
-
-# ## testing and trainning part of the lampit
-
-# In[4]:
-
-
 
 
 

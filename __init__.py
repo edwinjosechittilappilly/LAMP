@@ -2,7 +2,8 @@ import lamp_It
 import main
 import tester
 import trainer
-
+import wakeword 
+import filetrainer
 #other imports
 import chatterbot
 from chatterbot import ChatBot

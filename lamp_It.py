@@ -15,7 +15,7 @@ class lamp_It:
             return answer;
             m.speak(ctime())
         
-        elif "name" in data:
+        elif " your name" in data:
             answer=str(m.lamp.get_response(data));
             return answer;
             
@@ -34,9 +34,9 @@ class lamp_It:
             answer=m.online(data);
             return answer;
              
-        elif "who is " in data:
-            answer=m.online(data);
-            return answer;
+        #elif "who is " in data:
+            #answer=m.online(data);
+            #return answer;
              
         elif "calculate" in data:
             answer=m.online(data);
