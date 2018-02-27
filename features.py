@@ -37,10 +37,6 @@ class motion:
         GPIO.setup(C, GPIO.OUT, initial = 0)
         GPIO.setup(D, GPIO.OUT, initial = 0)
         GPIO.setup(lights, GPIO.OUT,initial = 0)
-        GPIO.output(5, GPIO.HIGH)
-        GPIO.output(6, GPIO.HIGH)
-        GPIO.output(13, GPIO.HIGH)
-        GPIO.output(19, GPIO.HIGH)
         #general movement
         if s=="F" or s=="f":
             GPIO.output(5, GPIO.HIGH)
@@ -49,11 +45,6 @@ class motion:
             GPIO.output(19, GPIO.LOW)
             print("I am bending forward")
             time.sleep(3)
-            GPIO.output(5, GPIO.HIGH)
-            GPIO.output(6, GPIO.HIGH)
-            GPIO.output(13, GPIO.HIGH)
-            GPIO.output(19, GPIO.HIGH)
-            GPIO.cleanup()
             return "I am bending forward"
         if s=="B" or s=="b":
             GPIO.output(6, GPIO.HIGH)
@@ -62,11 +53,6 @@ class motion:
             GPIO.output(19, GPIO.LOW)
             print("I am bending backward")
             time.sleep(3)
-            GPIO.output(5, GPIO.HIGH)
-            GPIO.output(6, GPIO.HIGH)
-            GPIO.output(13, GPIO.HIGH)
-            GPIO.output(19, GPIO.HIGH)
-            GPIO.cleanup()
             return "I am bending backward"
         if s=="l" or s=="L":
             GPIO.output(13, GPIO.HIGH)
@@ -75,11 +61,6 @@ class motion:
             GPIO.output(19, GPIO.LOW)
             print("I am bending left")
             time.sleep(3)
-            GPIO.output(5, GPIO.HIGH)
-            GPIO.output(6, GPIO.HIGH)
-            GPIO.output(13, GPIO.HIGH)
-            GPIO.output(19, GPIO.HIGH)
-            GPIO.cleanup()
             return "I am bending left"
         if s=="R" or s=="r":
             GPIO.output(19, GPIO.HIGH)
@@ -88,23 +69,13 @@ class motion:
             GPIO.output(13, GPIO.LOW)
             print("I am bending Right")
             time.sleep(3)
-            GPIO.output(5, GPIO.HIGH)
-            GPIO.output(6, GPIO.HIGH)
-            GPIO.output(13, GPIO.HIGH)
-            GPIO.output(19, GPIO.HIGH)
-            GPIO.cleanup()
             return "I am bending Right"
         if s=="t" or s=="T":
             GPIO.output(5, GPIO.HIGH)
-            GPIO.output(6, GPIO.HIGH)
+            GPIO.output(6, GPIO.LOw)
             GPIO.output(13, GPIO.HIGH)
-            GPIO.output(19, GPIO.HIGH)
+            GPIO.output(19, GPIO.LOW)
             time.sleep(3)
-            GPIO.output(5, GPIO.HIGH)
-            GPIO.output(6, GPIO.HIGH)
-            GPIO.output(13, GPIO.HIGH)
-            GPIO.output(19, GPIO.HIGH)
-            GPIO.cleanup()
             return "testing"
     def light(glow):
         if glow=="on":
