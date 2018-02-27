@@ -1,25 +1,41 @@
 import RPi.GPIO as GPIO
 import time
+GPIO.setmode(GPIO.BCM)
+A = 5
+B = 6
+C = 13
+D = 19
+lights = 26
+GPIO.setup(A, GPIO.OUT, initial = 0)
+GPIO.setup(B, GPIO.OUT, initial = 0)
+GPIO.setup(C, GPIO.OUT, initial = 0)
+GPIO.setup(D, GPIO.OUT, initial = 0)
+GPIO.setup(lights, GPIO.OUT,initial = 0)
+GPIO.output(5, GPIO.HIGH)
+GPIO.output(6, GPIO.HIGH)
+GPIO.output(13, GPIO.HIGH)
+GPIO.output(19, GPIO.HIGH)
 
 class motion:
     "has functions related to the motion of the lamp"
     
-    GPIO.setmode(GPIO.BCM)
-    A = 5
-    B = 6
-    C = 13
-    D = 19
-    lights = 26
-    GPIO.setup(A, GPIO.OUT, initial = 0)
-    GPIO.setup(B, GPIO.OUT, initial = 0)
-    GPIO.setup(C, GPIO.OUT, initial = 0)
-    GPIO.setup(D, GPIO.OUT, initial = 0)
-    GPIO.setup(lights, GPIO.OUT,initial = 0)
-    GPIO.output(5, GPIO.HIGH)
-    GPIO.output(6, GPIO.HIGH)
-    GPIO.output(13, GPIO.HIGH)
-    GPIO.output(19, GPIO.HIGH)
+    
     def mov(s):
+        GPIO.setmode(GPIO.BCM)
+        A = 5
+        B = 6
+        C = 13
+        D = 19
+        lights = 26
+        GPIO.setup(A, GPIO.OUT, initial = 0)
+        GPIO.setup(B, GPIO.OUT, initial = 0)
+        GPIO.setup(C, GPIO.OUT, initial = 0)
+        GPIO.setup(D, GPIO.OUT, initial = 0)
+        GPIO.setup(lights, GPIO.OUT,initial = 0)
+        GPIO.output(5, GPIO.HIGH)
+        GPIO.output(6, GPIO.HIGH)
+        GPIO.output(13, GPIO.HIGH)
+        GPIO.output(19, GPIO.HIGH)
         #general movement
         if s=="F" or s=="f":
             GPIO.output(5, GPIO.HIGH)
