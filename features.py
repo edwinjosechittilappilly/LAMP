@@ -3,18 +3,18 @@ import RPi.GPIO as GPIO
 class motion:
     "has functions related to the motion of the lamp"
     GPIO.setmode(GPIO.BCM);
-    f = 5;
-    b = 6;
-    l = 13;
-    r = 19;
-    GPIO.setup(f, GPIO.OUT, initial = 0);
-    GPIO.setup(b, GPIO.OUT, initial = 0);
-    GPIO.setup(l, GPIO.OUT, initial = 0);
-    GPIO.setup(r, GPIO.OUT, initial = 0);
-    GPIO.output(f, GPIO.LOW);
-    GPIO.output(b, GPIO.LOW);
-    GPIO.output(l, GPIO.LOW);
-    GPIO.output(r, GPIO.LOW);
+    f = 5
+    b = 6
+    l = 13
+    r = 19
+    GPIO.setup(f, GPIO.OUT, initial = 0)
+    GPIO.setup(b, GPIO.OUT, initial = 0)
+    GPIO.setup(l, GPIO.OUT, initial = 0)
+    GPIO.setup(r, GPIO.OUT, initial = 0)
+    GPIO.output(f, GPIO.LOW)
+    GPIO.output(b, GPIO.LOW)
+    GPIO.output(l, GPIO.LOW)
+    GPIO.output(r, GPIO.LOW)
     def mov(s):
         if s=="F" or s=="f":
             GPIO.output(f, GPIO.HIGH)
