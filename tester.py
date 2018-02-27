@@ -6,14 +6,17 @@ from trainer import logger as log
  
 m.speak("call me lamp to wake me up")
 while 1:
-    #while (w.isWake()):
-        #m.speak("Hi Buddy , what can I do for you?");
+    while (w.isWake()):
+        m.speak("I am here");
         data = m.recordAudio();
         #data=str(input("Question:"));
         ans=l.lamp_it(data);
         print(ans);
         m.speak(ans);
-        log.ltrain(data,ans);
+        m.speak("say dot to train");
+        data = m.recordAudio();
+        if data is "dot":
+            log.ltrain(data,ans);
 
 
 
