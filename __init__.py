@@ -4,6 +4,7 @@ import tester
 import trainer
 import wakeword 
 import filetrainer
+import features
 #other imports
 import chatterbot
 from chatterbot import ChatBot
@@ -16,5 +17,6 @@ import os
 from gtts import gTTS
 import wikipedia
 import wolframalpha
+import RPi.GPIO as GPIO 
 
 
