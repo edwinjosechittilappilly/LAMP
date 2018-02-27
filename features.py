@@ -4,7 +4,7 @@ import time
 class motion:
     "has functions related to the motion of the lamp"
     
-    GPIO.setmode(GPIO.BCM);
+    GPIO.setmode(GPIO.BCM)
     A = 5
     B = 6
     C = 13
