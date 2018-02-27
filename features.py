@@ -1,4 +1,50 @@
-import RPi.GPIO as GPIO 
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BCM);
+f = 5
+b = 6
+l = 13
+r = 19
+lights = 26
+GPIO.setup(f, GPIO.OUT, initial = 0)
+GPIO.setup(b, GPIO.OUT, initial = 0)
+GPIO.setup(l, GPIO.OUT, initial = 0)
+GPIO.setup(r, GPIO.OUT, initial = 0)
+GPIO.setup(lights, GPIO.OUT, initial = 0);
+    
+def ret():
+        file= open("mot.txt",'r')
+        ff=file.readlines()
+        file.close();
+        va=ff[-1]
+        var=str(va)
+        print(var);
+        if "1000" in var:
+            GPIO.output(5, GPIO.HIGH)
+            GPIO.output(6, GPIO.HIGH)
+            print("I am bending forward back")
+            #GPIO.cleanup()
+            return "I am bending forward back"
+        if "0100" in var:
+            GPIO.output(5, GPIO.HIGH)
+            GPIO.output(6, GPIO.LOW)
+            GPIO.output(13, GPIO.HIGH)
+            GPIO.output(19, GPIO.LOW)
+            print("I am bending backward back")
+            #GPIO.cleanup()
+            return "I am bending backward back"
+        if "0010" in var:
+            GPIO.output(13, GPIO.HIGH)
+            GPIO.output(6, GPIO.HIGH)
+            print("I am bending left back")
+            #GPIO.cleanup()
+            return "I am bending left back"
+        if "0001" in var:
+            GPIO.output(19, GPIO.HIGH)
+            GPIO.output(6, GPIO.HIGH)
+            print("I am bending right back")
+            #GPIO.cleanup()
+            return "I am bending right back"
+        return "turning"
 
 class motion:
     "has functions related to the motion of the lamp"
@@ -23,6 +69,9 @@ class motion:
             file.write(data+"\n");
             file.close();
             GPIO.output(5, GPIO.HIGH)
+            GPIO.output(6, GPIO.LOW)
+            GPIO.output(13, GPIO.LOW)
+            GPIO.output(19, GPIO.LOW)
             print("I am bending forward")
             #GPIO.cleanup()
             return "I am bending forward"
@@ -34,6 +83,9 @@ class motion:
             file.write(data+"\n");
             file.close();
             GPIO.output(6, GPIO.HIGH)
+            GPIO.output(5, GPIO.LOW)
+            GPIO.output(13, GPIO.LOW)
+            GPIO.output(19, GPIO.LOW)
             print("I am bending backward")
             return "I am bending backward"
         if s=="l" or s=="L":
@@ -44,6 +96,9 @@ class motion:
             file.write(data+"\n");
             file.close();
             GPIO.output(13, GPIO.HIGH)
+            GPIO.output(5, GPIO.LOW)
+            GPIO.output(6, GPIO.LOW)
+            GPIO.output(19, GPIO.LOW)
             print("I am bending left")
             return "I am bending left"
         if s=="R" or s=="r":
@@ -54,6 +109,9 @@ class motion:
             file.write(data+"\n");
             file.close();
             GPIO.output(19, GPIO.HIGH)
+            GPIO.output(5, GPIO.LOW)
+            GPIO.output(6, GPIO.LOW)
+            GPIO.output(13, GPIO.LOW)
             print("I am bending Right")
             return "I am bending Right"
         if s=="t" or s=="T":
@@ -63,43 +121,7 @@ class motion:
             GPIO.output(6, GPIO.HIGH)
             GPIO.output(13, GPIO.HIGH)
             GPIO.output(19, GPIO.HIGH)
-    def ret():
-        file= open("mot.txt",'r')
-        file.close();
-        ff=file.readlines()
-        var=ff[-1]
-        if var == "1000":
-            GPIO.output(5, GPIO.HIGH)
-            GPIO.output(6, GPIO.HIGH)
-            print("I am bending forward back")
-            #GPIO.cleanup()
-            return "I am bending forward back"
-        elif var == "0100":
-            GPIO.output(5, GPIO.HIGH)
-            GPIO.output(6, GPIO.LOW)
-            GPIO.output(13, GPIO.HIGH)
-            GPIO.output(19, GPIO.LOW)
-            print("I am bending backward back")
-            #GPIO.cleanup()
-            return "I am bending backward back"
-        elif var == "0010":
-            GPIO.output(13, GPIO.HIGH)
-            GPIO.output(6, GPIO.HIGH)
-            print("I am bending left back")
-            #GPIO.cleanup()
-            return "I am bending left back"
-        elif var == "0001":
-            GPIO.output(19, GPIO.HIGH)
-            GPIO.output(6, GPIO.HIGH)
-            print("I am bending right back")
-            #GPIO.cleanup()
-            return "I am bending right back"
-        else:
-            return "turning"
         
-        
-
-            
     def light(glow):
         if glow=="on":
             GPIO.output(126, GPIO.HIGH)
