@@ -21,8 +21,10 @@ def ret():
         if "1000" in var:
             GPIO.output(5, GPIO.HIGH)
             GPIO.output(6, GPIO.HIGH)
+            
             print("I am bending forward back")
             #GPIO.cleanup()
+            time.sleep(3);
             return "I am bending forward back"
         if "0100" in var:
             GPIO.output(5, GPIO.HIGH)
@@ -30,18 +32,21 @@ def ret():
             GPIO.output(13, GPIO.HIGH)
             GPIO.output(19, GPIO.LOW)
             print("I am bending backward back")
+            time.sleep(3);
             #GPIO.cleanup()
             return "I am bending backward back"
         if "0010" in var:
             GPIO.output(13, GPIO.HIGH)
             GPIO.output(6, GPIO.HIGH)
             print("I am bending left back")
+            time.sleep(3);
             #GPIO.cleanup()
             return "I am bending left back"
         if "0001" in var:
             GPIO.output(19, GPIO.HIGH)
             GPIO.output(6, GPIO.HIGH)
             print("I am bending right back")
+            time.sleep(3);
             #GPIO.cleanup()
             return "I am bending right back"
         return "turning"
