@@ -6,7 +6,7 @@
 from features import motion as mot
 from main import main as m
 while 1:
-    mot.reset()
+    #mot.reset()
     Q=str(input("Q:"))
     ans=mot.mov(Q);
     m.speak(ans);
