@@ -72,7 +72,7 @@ class motion:
             return "I am bending Right"
         if s=="t" or s=="T":
             GPIO.output(5, GPIO.HIGH)
-            GPIO.output(6, GPIO.LOw)
+            GPIO.output(6, GPIO.LOW)
             GPIO.output(13, GPIO.HIGH)
             GPIO.output(19, GPIO.LOW)
             time.sleep(3)
