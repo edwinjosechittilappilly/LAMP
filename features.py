@@ -18,7 +18,12 @@ GPIO.output(19, GPIO.HIGH)
 
 class motion:
     "has functions related to the motion of the lamp"
-    
+    def reset():
+        GPIO.output(5, GPIO.HIGH)
+        GPIO.output(6, GPIO.HIGH)
+        GPIO.output(13, GPIO.HIGH)
+        GPIO.output(19, GPIO.HIGH)
+
     
     def mov(s):
         GPIO.setmode(GPIO.BCM)
