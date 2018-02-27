@@ -10,7 +10,7 @@ GPIO.setup(f, GPIO.OUT, initial = 0)
 GPIO.setup(b, GPIO.OUT, initial = 0)
 GPIO.setup(l, GPIO.OUT, initial = 0)
 GPIO.setup(r, GPIO.OUT, initial = 0)
-GPIO.setup(lights, GPIO.OUT);
+GPIO.setup(lights, GPIO.OUT,initial = 0);
     
 def ret():
         file= open("mot.txt",'r')
@@ -69,7 +69,7 @@ class motion:
     def mov(s):
         #general movement
         if s=="F" or s=="f":
-            ret()
+            #ret()
             file= open("mot.txt",'w')
             data="1000"
             file.write(data+"\n");
@@ -83,7 +83,7 @@ class motion:
             #GPIO.cleanup()
             return "I am bending forward"
         if s=="B" or s=="b":
-            ret()
+            #ret()
             file= open("mot.txt",'w')
             data="0100"
             file.write(data+"\n");
@@ -96,7 +96,7 @@ class motion:
             time.sleep(5)
             return "I am bending backward"
         if s=="l" or s=="L":
-            ret()
+            #ret()
             file= open("mot.txt",'w')
             data="0010"
             file.write(data+"\n");
@@ -109,7 +109,7 @@ class motion:
             time.sleep(5)
             return "I am bending left"
         if s=="R" or s=="r":
-            ret()
+            #ret()
             file= open("mot.txt",'w')
             data="0001"
             file.write(data+"\n");
@@ -122,7 +122,7 @@ class motion:
             time.sleep(5)
             return "I am bending Right"
         if s=="t" or s=="T":
-            ret()
+            #ret()
             GPIO.output(5, GPIO.HIGH)
             GPIO.output(6, GPIO.HIGH)
             GPIO.output(13, GPIO.HIGH)
