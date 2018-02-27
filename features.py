@@ -45,7 +45,7 @@ class motion:
             return "I am bending right back"
         
         
-        //general movement
+        #general movement
         if s=="F" or s=="f":
             file= open("mot.txt",'w')
             data="1000"
