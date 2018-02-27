@@ -5,15 +5,15 @@ class motion:
     "has functions related to the motion of the lamp"
     
     GPIO.setmode(GPIO.BCM);
-    f = 5
-    b = 6
-    l = 13
-    r = 19
+    A = 5
+    B = 6
+    C = 13
+    D = 19
     lights = 26
-    GPIO.setup(f, GPIO.OUT, initial = 0)
-    GPIO.setup(b, GPIO.OUT, initial = 0)
-    GPIO.setup(l, GPIO.OUT, initial = 0)
-    GPIO.setup(r, GPIO.OUT, initial = 0)
+    GPIO.setup(A, GPIO.OUT, initial = 0)
+    GPIO.setup(B, GPIO.OUT, initial = 0)
+    GPIO.setup(C, GPIO.OUT, initial = 0)
+    GPIO.setup(D, GPIO.OUT, initial = 0)
     GPIO.setup(lights, GPIO.OUT,initial = 0)
     GPIO.output(5, GPIO.HIGH)
     GPIO.output(6, GPIO.HIGH)
