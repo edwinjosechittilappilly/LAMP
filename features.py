@@ -7,32 +7,93 @@ class motion:
     b = 6
     l = 13
     r = 19
+    lights = 26
     GPIO.setup(f, GPIO.OUT, initial = 0)
     GPIO.setup(b, GPIO.OUT, initial = 0)
     GPIO.setup(l, GPIO.OUT, initial = 0)
     GPIO.setup(r, GPIO.OUT, initial = 0)
-    GPIO.output(f, GPIO.LOW)
-    GPIO.output(b, GPIO.LOW)
-    GPIO.output(l, GPIO.LOW)
-    GPIO.output(r, GPIO.LOW)
+    GPIO.setup(lights, GPIO.OUT, initial = 0)
     def mov(s):
+        file= open("mot.txt",'r')
+        ff=file.readlines()
+        var=ff[-1]
+        if var == "1000":
+            GPIO.output(5, GPIO.HIGH)
+            GPIO.output(6, GPIO.HIGH)
+            print("I am bending forward back")
+            #GPIO.cleanup()
+            return "I am bending forward back"
+        elif var == "0100":
+            GPIO.output(5, GPIO.HIGH)
+            GPIO.output(6, GPIO.LOW)
+            GPIO.output(13, GPIO.HIGH)
+            GPIO.output(19, GPIO.LOW)
+            print("I am bending backward back")
+            #GPIO.cleanup()
+            return "I am bending backward back"
+        elif var == "0010":
+            GPIO.output(13, GPIO.HIGH)
+            GPIO.output(6, GPIO.HIGH)
+            print("I am bending left back")
+            #GPIO.cleanup()
+            return "I am bending left back"
+        elif var == "0001":
+            GPIO.output(19, GPIO.HIGH)
+            GPIO.output(6, GPIO.HIGH)
+            print("I am bending right back")
+            #GPIO.cleanup()
+            return "I am bending right back"
+        
+        
+        //general movement
         if s=="F" or s=="f":
+            file= open("mot.txt",'w')
+            data="1000"
+            file.write(data+"\n");
+            file.close();
             GPIO.output(5, GPIO.HIGH)
             print("I am bending forward")
             #GPIO.cleanup()
             return "I am bending forward"
         if s=="B" or s=="b":
+            file= open("mot.txt",'w')
+            data="0100"
+            file.write(data+"\n");
+            file.close();
             GPIO.output(6, GPIO.HIGH)
             print("I am bending backward")
             return "I am bending backward"
         if s=="l" or s=="L":
+            file= open("mot.txt",'w')
+            data="0010"
+            file.write(data+"\n");
+            file.close();
             GPIO.output(13, GPIO.HIGH)
             print("I am bending left")
             return "I am bending left"
         if s=="R" or s=="r":
+            file= open("mot.txt",'w')
+            data="0001"
+            file.write(data+"\n");
+            file.close();
             GPIO.output(19, GPIO.HIGH)
             print("I am bending Right")
             return "I am bending Right"
+        if s=="t" or s=="T":
+            GPIO.output(5, GPIO.HIGH)
+            GPIO.output(6, GPIO.HIGH)
+            GPIO.output(13, GPIO.HIGH)
+            GPIO.output(19, GPIO.HIGH)
+            
+    def light(glow):
+        if glow=="on":
+            GPIO.output(126, GPIO.HIGH)
+            print("Lights turned on")
+            return "Lights turned on"
+        if glow=="off":
+            GPIO.output(126, GPIO.HIGH)
+            print("Lights turned on")
+            return "Lights turned on"
         
 
 
