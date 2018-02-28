@@ -13,9 +13,9 @@ while 1:
         ans=l.lamp_it(data);
         print(ans);
         m.speak(ans);
-        m.speak("say dot to train");
+        m.speak("train data?");
         data = m.recordAudio();
-        if data is "dot":
+        if data =="train":
             log.ltrain(data,ans);
 
 
