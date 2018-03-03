@@ -36,6 +36,11 @@ class lamp_It:
             data=data.replace("for"," ")
             answer=m.online(data);
             return answer;
+        elif "what is" in data:
+            data=data.replace("what","")
+            data=data.replace("is"," ")
+            answer=m.online(data);
+            return answer;
              
         #elif "who is " in data:
             #answer=m.online(data);
@@ -62,6 +67,12 @@ class lamp_It:
             else:
                 s=mot.mov("t");
             return s;
+        elif "turn on lamp" in data:
+                s=mot.light("on");
+                return s;
+        elif "turn off lamp" in data:
+                s=mot.light("off");
+                return s;            
         else:
             answer=str(m.lamp.get_response(data));
             return answer;

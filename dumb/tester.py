@@ -5,12 +5,10 @@ from wakeword import wakeword as w
 from trainer import logger as log 
  
 m.speak("call me lamp to wake me up")
-m.speak("I am here");
 while 1:
     #while (w.isWake()):
-        #m.speak("I am here");
-        #data = m.recordAudio();
         m.speak("I am here");
+        #data = m.recordAudio();
         data=str(input("Question:"));
         ans=l.lamp_it(data);
         print(ans);

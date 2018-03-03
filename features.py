@@ -79,14 +79,12 @@ class motion:
             return "testing"
     def light(glow):
         if glow=="on":
-            GPIO.output(126, GPIO.HIGH)
+            GPIO.output(26, GPIO.HIGH)
             print("Lights turned on")
-            GPIO.cleanup()
             return "Lights turned on"
         if glow=="off":
-            GPIO.output(126, GPIO.HIGH)
+            GPIO.output(26, GPIO.LOW)
             print("Lights turned on")
-            GPIO.cleanup()
             return "Lights turned on"
         
         
